@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public abstract class JoystickHandler : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private Image _joystickArea;
     [SerializeField] private Image _joystick;
     [SerializeField] private Image _joystickBackGround;
 

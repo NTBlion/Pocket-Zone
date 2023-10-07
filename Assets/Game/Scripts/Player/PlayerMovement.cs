@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
 
     private JoystickMovement _joystick;
     private Vector2 _direction;
-    
+
     public void Init(JoystickMovement joystick)
     {
         _joystick = joystick;
