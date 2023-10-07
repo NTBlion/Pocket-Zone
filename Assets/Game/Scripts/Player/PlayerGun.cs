@@ -10,4 +10,8 @@ public class PlayerGun : MonoBehaviour
     {
         Instantiate(_bulletTemplate, _bulletPoint.position, _bulletPoint.rotation).Init(_bulletPoint.right * _speed);
     }
+    public void Shot(Vector2 direction)
+    {
+        Instantiate(_bulletTemplate, _bulletPoint.position, _bulletPoint.rotation).Init(direction * _speed);
+    }
 }

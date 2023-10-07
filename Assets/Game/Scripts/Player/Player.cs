@@ -24,5 +24,6 @@ public class Player : MonoBehaviour, IDamagable
 
     private void OnFounded(Collider2D obj)
     {
+        Debug.Log("Я тебя нашёл пидр" + obj.name);
     }
 }

@@ -18,9 +18,10 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         _direction = _joystick.ReturnVectorDirection();
+        Move();
     }
 
-    public void Move()
+    private void Move()
     {
         _rigidbody.MovePosition(_rigidbody.position + _direction * (_speed * Time.fixedDeltaTime));
     }
