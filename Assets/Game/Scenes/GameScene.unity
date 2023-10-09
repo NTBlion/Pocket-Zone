@@ -459,6 +459,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522234863}
   m_CullTransparentMesh: 1
+--- !u!114 &560635564 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6400376261366008088, guid: 47e7adbbe56c6ee4cbf6c3e4699a679b, type: 3}
+  m_PrefabInstance: {fileID: 4409126650890904103}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 287a1fc4a639ada458a3ebf7b2dac323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &640320987
 GameObject:
   m_ObjectHideFlags: 0
@@ -39075,6 +39086,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6927d1b8e7cd49708454d011cda586d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy: {fileID: 560635564}
 --- !u!1 &1370001733
 GameObject:
   m_ObjectHideFlags: 0
@@ -40563,7 +40575,7 @@ MonoBehaviour:
   _rotation: {fileID: 7727075449457249044}
   _weapon: {fileID: 1353739071}
   _weaponRotation: {fileID: 1353739073}
-  _checker: {fileID: 7727075449457249045}
+  _checker: {fileID: 0}
 --- !u!1 &497333282505594998
 GameObject:
   m_ObjectHideFlags: 0
@@ -41113,7 +41125,6 @@ GameObject:
   - component: {fileID: 7727075449457249043}
   - component: {fileID: 7727075449457249042}
   - component: {fileID: 7727075449457249044}
-  - component: {fileID: 7727075449457249045}
   - component: {fileID: 7727075449457249041}
   - component: {fileID: 7727075449457249040}
   m_Layer: 6
@@ -41208,19 +41219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6e6ebd17df9f1429ae24b28acd1192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7727075449457249045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727075449457249039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a0fc66e7e900ae4080db7cbc52ec61e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _checkZone: {fileID: 0}
 --- !u!4 &8034222806992949944
 Transform:
   m_ObjectHideFlags: 0
