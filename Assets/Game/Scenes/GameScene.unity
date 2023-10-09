@@ -39024,6 +39024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1353739072}
   - component: {fileID: 1353739071}
+  - component: {fileID: 1353739073}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -39046,7 +39047,6 @@ MonoBehaviour:
   _bulletTemplate: {fileID: 4539838025625272, guid: 6db586d8cc09dbb4f8b31eed5a8e0146, type: 3}
   _bulletPoint: {fileID: 1850176259}
   _speed: 10
-  _delayBeforeShot: 0
 --- !u!4 &1353739072
 Transform:
   m_ObjectHideFlags: 0
@@ -39054,7 +39054,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353739070}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -39063,6 +39063,18 @@ Transform:
   m_Father: {fileID: 2182773142288149077}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1353739073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1353739070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6927d1b8e7cd49708454d011cda586d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1370001733
 GameObject:
   m_ObjectHideFlags: 0
@@ -40548,8 +40560,9 @@ MonoBehaviour:
   _movement: {fileID: 7727075449457249042}
   _camera: {fileID: 519420033}
   _player: {fileID: 7727075449457249043}
-  _playerRotation: {fileID: 7727075449457249044}
+  _rotation: {fileID: 7727075449457249044}
   _weapon: {fileID: 1353739071}
+  _weaponRotation: {fileID: 1353739073}
   _checker: {fileID: 7727075449457249045}
 --- !u!1 &497333282505594998
 GameObject:
@@ -40709,7 +40722,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6964644716197977021, guid: 47e7adbbe56c6ee4cbf6c3e4699a679b, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6975379446500251416, guid: 47e7adbbe56c6ee4cbf6c3e4699a679b, type: 3}
       propertyPath: m_Name
@@ -41100,9 +41113,9 @@ GameObject:
   - component: {fileID: 7727075449457249043}
   - component: {fileID: 7727075449457249042}
   - component: {fileID: 7727075449457249044}
+  - component: {fileID: 7727075449457249045}
   - component: {fileID: 7727075449457249041}
   - component: {fileID: 7727075449457249040}
-  - component: {fileID: 7727075449457249045}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -41207,11 +41220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0fc66e7e900ae4080db7cbc52ec61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius: 2.3
-  _layerMask:
-    serializedVersion: 2
-    m_Bits: 128
-  _maxUnitsCount: 10
+  _checkZone: {fileID: 0}
 --- !u!4 &8034222806992949944
 Transform:
   m_ObjectHideFlags: 0

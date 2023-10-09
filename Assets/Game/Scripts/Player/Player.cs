@@ -13,25 +13,10 @@ public class Player : MonoBehaviour, IDamagable
     {
         _checker = checker;
         _weapon = weapon;
-        _checker.Founded += OnFounded;
     }
 
     public void TakeDamage(float damage)
     {
         throw new System.NotImplementedException();
-    }
-
-    private void OnDisable()
-    {
-        _checker.Founded -= OnFounded;
-    }
-
-    private void OnFounded(Collider2D obj)
-    {
-        Enemy enemy = obj.GetComponent<Enemy>();
-
-        _direction =enemy.transform.position - transform.position;
-        
-        _weapon.Shot(_direction);
     }
 }
