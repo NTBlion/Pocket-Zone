@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         _stateMachine.CurrentState.FixedUpdate();
+        _stateMachine.CurrentState.Update();
 
         var joystickVector = _joystick.ReturnVectorDirection();
 
@@ -43,13 +44,9 @@ public class Player : MonoBehaviour
 
         if (_detector.FindNearestEnemy() != null)
         {
+            _stateMachine.CurrentState.Update();
             _enemy = _detector.FindNearestEnemy();
             _stateMachine.ChangeState(new HasTargetState(_movement, _rotation, _weaponRotation, _enemy));
-
-            if (_enemy == null)
-            {
-                _stateMachine.ChangeState(_runState);
-            }
         }
     }
 }

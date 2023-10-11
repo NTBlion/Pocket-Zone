@@ -20,7 +20,14 @@ public class HasTargetState : State
     {
         base.FixedUpdate();
         _movement.Move();
-        _rotation.Rotate(_enemy);
-        _weaponRotation.Rotate(_enemy);
+    }
+
+    public override void Update()
+    {
+        if (_enemy != null)
+        {
+            _rotation.Rotate(_enemy);
+            _weaponRotation.Rotate(_enemy);
+        }
     }
 }
