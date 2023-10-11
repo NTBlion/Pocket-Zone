@@ -6,18 +6,26 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
-    [SerializeField] private Rigidbody2D _rigidbody;
+    private JoystickMovement _joystick;
+    private EnemyDetector _detector;
+    private PlayerMovement _movement;
+    private PlayerRotation _rotation;
+
+    private Enemy _enemy;
 
     private StateMachine _stateMachine;
-    private JoystickMovement _joystick;
     private RunState _runState;
 
-    public void Init(JoystickMovement joystick)
+    public void Init(JoystickMovement joystick, EnemyDetector detector, PlayerMovement playerMovement,
+        PlayerRotation rotation)
     {
         _joystick = joystick;
+        _detector = detector;
+        _movement = playerMovement;
+        _rotation = rotation;
         _stateMachine = new StateMachine();
         _stateMachine.Init(new IdleState());
-        _runState = new RunState(this, _joystick, _rigidbody, _speed);
+        _runState = new RunState(_movement, _rotation);
     }
 
     private void Update()
@@ -29,6 +37,12 @@ public class Player : MonoBehaviour
         if (joystickVector != Vector2.zero)
         {
             _stateMachine.ChangeState(_runState);
+        }
+
+        if (_detector.FindNearestEnemy() != null)
+        {
+            _enemy = _detector.FindNearestEnemy();
+            _stateMachine.ChangeState(new HasTargetState(_movement, _detector, _rotation, _enemy));
         }
     }
 }

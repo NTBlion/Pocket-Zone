@@ -33,3 +33,11 @@ public class WeaponRotation : MonoBehaviour
         return Mathf.Atan2(joystickVector.y, joystickVector.x) * Mathf.Rad2Deg;
     }
 }
+
+public static class Utilities 
+{
+    public static float CalculateAngle1(Vector2 vector)
+    {
+        return Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+    }
+}
