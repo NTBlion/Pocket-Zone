@@ -1,19 +1,30 @@
 using System;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour, IDamagable
+public class CharacterHealth : MonoBehaviour, IDamagable
 {
-    [SerializeField] private float _currentHealth;
-    [SerializeField] private float _maxHealth;
+    [SerializeField] [Min(1f)] private float _currentHealth;
+    [SerializeField] [Min(1f)] private float _maxHealth;
+
+    private void OnValidate()
+    {
+        if (_currentHealth > _maxHealth)
+            _currentHealth = _maxHealth;
+    }
 
     private Health _health;
 
     public event Action<float, float> HealthChanged;
-    
+
     private void Awake()
     {
         _health = new Health(_currentHealth, _maxHealth);
         _health.HealthChanged += OnHealthChanged;
+    }
+
+    private void Start()
+    {
+        HealthChanged?.Invoke(_health.CurrentHealth, _health.MaxHealth);
     }
 
     private void OnDisable()
@@ -30,8 +41,8 @@ public class EnemyHealth : MonoBehaviour, IDamagable
     {
         if (_health.CurrentHealth <= 0)
             Die();
-        
-        HealthChanged?.Invoke(_health.CurrentHealth,_health.MaxHealth);
+
+        HealthChanged?.Invoke(_health.CurrentHealth, _health.MaxHealth);
     }
 
     private void Die()

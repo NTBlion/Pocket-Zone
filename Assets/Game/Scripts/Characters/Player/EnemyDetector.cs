@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class EnemyDetector : MonoBehaviour
 {
-    [SerializeField] private float _detectionRadius = 10f;
+    [SerializeField] [Min(1f)] private float _detectionRadius;
     [SerializeField] private LayerMask _enemyLayer;
 
     private Collider2D[] _collidersBuffer = new Collider2D[10];
 
     public Enemy FindNearestEnemy()
     {
-        int hitCount = Physics2D.OverlapCircleNonAlloc(transform.position, _detectionRadius, _collidersBuffer, _enemyLayer);
+        int hitCount =
+            Physics2D.OverlapCircleNonAlloc(transform.position, _detectionRadius, _collidersBuffer, _enemyLayer);
 
         float closestDistance = Mathf.Infinity;
         Enemy closestEnemy = null;

@@ -9,6 +9,7 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private WeaponRotation _weaponRotation;
     [SerializeField] private EnemyDetector _enemyDetector;
     [SerializeField] private PlayerMovement _playerMovement;
+    [SerializeField] private EnemySpawner _spawner;
 
     private void Awake()
     {
@@ -17,5 +18,6 @@ public class GameRoot : MonoBehaviour
         _playerRotation.Init(_joystick);
         _weaponRotation.Init(_joystick);
         _playerMovement.Init(_joystick);
+        _spawner.Spawn();
     }
 }

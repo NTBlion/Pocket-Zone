@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private EnemyHealth _health;
+    [SerializeField] private CharacterHealth _health;
     [SerializeField] private Slider _fill;
 
     private void OnEnable()
@@ -19,7 +19,6 @@ public class HealthBar : MonoBehaviour
 
     private void OnHealthChanged(float currentHealth, float maxHealth)
     {
-        Debug.Log(currentHealth);
         _fill.value = currentHealth / maxHealth;
     }
 }
