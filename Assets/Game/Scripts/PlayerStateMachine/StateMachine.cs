@@ -1,6 +1,6 @@
 public class StateMachine
 {
-    private State CurrentState { get; set; }
+    public State CurrentState { get; private set; }
 
     public void Init(State startState)
     {

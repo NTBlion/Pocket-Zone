@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerWeapon : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     [SerializeField] private Bullet _bulletTemplate;
     [SerializeField] private Transform _bulletPoint;
