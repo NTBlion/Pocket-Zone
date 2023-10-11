@@ -45,6 +45,11 @@ public class Player : MonoBehaviour
         {
             _enemy = _detector.FindNearestEnemy();
             _stateMachine.ChangeState(new HasTargetState(_movement, _rotation, _weaponRotation, _enemy));
+
+            if (_enemy == null)
+            {
+                _stateMachine.ChangeState(_runState);
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ public class HasTargetState : State
         _weaponRotation = weaponRotation;
         _enemy = enemy;
     }
-    
+
     public override void FixedUpdate()
     {
         base.FixedUpdate();
