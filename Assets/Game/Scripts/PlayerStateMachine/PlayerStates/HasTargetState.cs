@@ -3,16 +3,16 @@ using UnityEngine;
 public class HasTargetState : State
 {
     private readonly PlayerMovement _movement;
-    private readonly EnemyDetector _detector;
     private readonly PlayerRotation _rotation;
+    private readonly WeaponRotation _weaponRotation;
+    private readonly Enemy _enemy;
 
-    private Enemy _enemy;
 
-    public HasTargetState(PlayerMovement movement, EnemyDetector detector, PlayerRotation rotation, Enemy enemy)
+    public HasTargetState(PlayerMovement movement, PlayerRotation rotation, WeaponRotation weaponRotation, Enemy enemy)
     {
         _movement = movement;
-        _detector = detector;
         _rotation = rotation;
+        _weaponRotation = weaponRotation;
         _enemy = enemy;
     }
     
@@ -21,5 +21,6 @@ public class HasTargetState : State
         base.FixedUpdate();
         _movement.Move();
         _rotation.Rotate(_enemy);
+        _weaponRotation.Rotate(_enemy);
     }
 }

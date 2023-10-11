@@ -12,7 +12,7 @@ public class GameRoot : MonoBehaviour
 
     private void Awake()
     {
-        _player.Init(_joystick, _enemyDetector, _playerMovement,_playerRotation);
+        _player.Init(_joystick, _enemyDetector, _playerMovement,_playerRotation, _weaponRotation);
         _camera.Init(_player);
         _playerRotation.Init(_joystick);
         _weaponRotation.Init(_joystick);

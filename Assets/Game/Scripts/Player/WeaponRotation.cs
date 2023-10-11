@@ -12,15 +12,16 @@ public class WeaponRotation : MonoBehaviour
         _joystick = joystick;
     }
 
-    private void Update()
+    public void Rotate()
     {
-        Vector2 joystickVector = _joystick.ReturnVectorDirection();
+        var joystickVector = _joystick.ReturnVectorDirection();
+
         float angle = CalculateAngle(joystickVector);
 
         switch (joystickVector.x)
         {
             case > 0:
-                transform.eulerAngles = new Vector3(transform.rotation.x, transform.localRotation.y, angle);
+                transform.eulerAngles = new Vector3(transform.localRotation.x, transform.localRotation.y, angle);
                 break;
             case < 0:
                 transform.eulerAngles = new Vector3(180, 0, -angle);
@@ -28,16 +29,25 @@ public class WeaponRotation : MonoBehaviour
         }
     }
 
-    private float CalculateAngle(Vector2 joystickVector)
+    public void Rotate(Enemy enemy)
     {
-        return Mathf.Atan2(joystickVector.y, joystickVector.x) * Mathf.Rad2Deg;
+        var direction = transform.position - enemy.transform.position;
+        
+        float angle = CalculateAngle(direction);
+        
+        switch (direction.x)
+        {
+            case > 0:
+                transform.eulerAngles = new Vector3(transform.localRotation.x, 180, -angle);
+                break;
+            case < 0:
+                transform.eulerAngles = new Vector3(180, 180, angle);
+                break;
+        }
     }
-}
 
-public static class Utilities 
-{
-    public static float CalculateAngle1(Vector2 vector)
+    private float CalculateAngle(Vector2 vector2)
     {
-        return Mathf.Atan2(vector.y, vector.x) * Mathf.Rad2Deg;
+        return Mathf.Atan2(vector2.y, vector2.x) * Mathf.Rad2Deg;
     }
 }
