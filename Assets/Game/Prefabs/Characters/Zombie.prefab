@@ -853,7 +853,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _detectionRadius: 3
-  _enemyLayer:
+  _layer:
     serializedVersion: 2
     m_Bits: 64
 --- !u!114 &4835795783864282194
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: 7572510518207991438}
-  _speed: 2
+  _speed: 1
 --- !u!50 &7572510518207991438
 Rigidbody2D:
   serializedVersion: 4

@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
     private PlayerMovement _movement;
     private PlayerRotation _rotation;
     private WeaponRotation _weaponRotation;
-
     private CharacterHealth _enemy;
 
     private StateMachine _stateMachine;

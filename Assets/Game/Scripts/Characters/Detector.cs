@@ -3,14 +3,14 @@ using UnityEngine;
 public class Detector : MonoBehaviour
 {
     [SerializeField] [Min(1f)] private float _detectionRadius;
-    [SerializeField] private LayerMask _enemyLayer;
+    [SerializeField] private LayerMask _layer;
 
     private Collider2D[] _collidersBuffer = new Collider2D[10];
 
     public CharacterHealth FindNearestEnemy()
     {
         int hitCount =
-            Physics2D.OverlapCircleNonAlloc(transform.position, _detectionRadius, _collidersBuffer, _enemyLayer);
+            Physics2D.OverlapCircleNonAlloc(transform.position, _detectionRadius, _collidersBuffer, _layer);
 
         float closestDistance = Mathf.Infinity;
         CharacterHealth closestEnemy = null;
