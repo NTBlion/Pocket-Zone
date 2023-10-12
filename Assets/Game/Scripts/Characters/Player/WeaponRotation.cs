@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponRotation : MonoBehaviour
@@ -29,7 +26,7 @@ public class WeaponRotation : MonoBehaviour
         }
     }
 
-    public void Rotate(Enemy enemy)
+    public void Rotate(CharacterHealth enemy)
     {
         var direction = transform.position - enemy.transform.position;
         

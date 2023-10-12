@@ -20,7 +20,7 @@ public class PlayerRotation : MonoBehaviour
             Flip();
     }
 
-    public void Rotate(Enemy enemy)
+    public void Rotate(CharacterHealth enemy)
     {
         if (enemy.transform.position.x > transform.position.x)
         {

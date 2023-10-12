@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class EnemyDetector : MonoBehaviour
+public class Detector : MonoBehaviour
 {
     [SerializeField] [Min(1f)] private float _detectionRadius;
     [SerializeField] private LayerMask _enemyLayer;
 
     private Collider2D[] _collidersBuffer = new Collider2D[10];
 
-    public Enemy FindNearestEnemy()
+    public CharacterHealth FindNearestEnemy()
     {
         int hitCount =
             Physics2D.OverlapCircleNonAlloc(transform.position, _detectionRadius, _collidersBuffer, _enemyLayer);
 
         float closestDistance = Mathf.Infinity;
-        Enemy closestEnemy = null;
+        CharacterHealth closestEnemy = null;
 
         for (int i = 0; i < hitCount; i++)
         {
@@ -21,7 +21,7 @@ public class EnemyDetector : MonoBehaviour
 
             if (distance < closestDistance)
             {
-                if (_collidersBuffer[i].TryGetComponent(out Enemy enemy))
+                if (_collidersBuffer[i].TryGetComponent(out CharacterHealth enemy))
                 {
                     closestDistance = distance;
                     closestEnemy = enemy;
@@ -31,6 +31,8 @@ public class EnemyDetector : MonoBehaviour
 
         return closestEnemy;
     }
+    
+    
 
     private void OnDrawGizmos()
     {

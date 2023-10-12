@@ -1,23 +1,21 @@
-using System;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody2D))]
 public class Player : MonoBehaviour
 {
     [SerializeField] [Min(1f)] private float _speed;
 
     private JoystickMovement _joystick;
-    private EnemyDetector _detector;
+    private Detector _detector;
     private PlayerMovement _movement;
     private PlayerRotation _rotation;
     private WeaponRotation _weaponRotation;
 
-    private Enemy _enemy;
+    private CharacterHealth _enemy;
 
     private StateMachine _stateMachine;
-    private RunState _runState;
+    private PlayerRunState _playerRunState;
 
-    public void Init(JoystickMovement joystick, EnemyDetector detector, PlayerMovement playerMovement,
+    public void Init(JoystickMovement joystick, Detector detector, PlayerMovement playerMovement,
         PlayerRotation rotation, WeaponRotation weaponRotation)
     {
         _joystick = joystick;
@@ -26,8 +24,8 @@ public class Player : MonoBehaviour
         _rotation = rotation;
         _weaponRotation = weaponRotation;
         _stateMachine = new StateMachine();
-        _stateMachine.Init(new IdleState());
-        _runState = new RunState(_movement, _rotation, _weaponRotation);
+        _stateMachine.Init(new PlayerIdleState());
+        _playerRunState = new PlayerRunState(_movement, _rotation, _weaponRotation);
     }
 
     private void Update()
@@ -39,14 +37,13 @@ public class Player : MonoBehaviour
 
         if (joystickVector != Vector2.zero)
         {
-            _stateMachine.ChangeState(_runState);
+            _stateMachine.ChangeState(_playerRunState);
         }
 
         if (_detector.FindNearestEnemy() != null)
         {
-            _stateMachine.CurrentState.Update();
             _enemy = _detector.FindNearestEnemy();
-            _stateMachine.ChangeState(new HasTargetState(_movement, _rotation, _weaponRotation, _enemy));
+            _stateMachine.ChangeState(new PlayerTargetState(_movement, _rotation, _weaponRotation, _enemy));
         }
     }
 }

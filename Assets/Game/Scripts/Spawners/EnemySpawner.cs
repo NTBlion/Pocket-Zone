@@ -1,12 +1,11 @@
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyTemplate;
     [SerializeField] private int _enemyCount;
     [SerializeField] private Collider2D _spawnArea;
-
+    
     public void Spawn()
     {
         for (int i = 0; i < _enemyCount; i++)

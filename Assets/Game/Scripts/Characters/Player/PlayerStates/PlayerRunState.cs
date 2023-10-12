@@ -1,13 +1,11 @@
-using UnityEngine;
-
-public class RunState : State
+public class PlayerRunState : State
 {
     private readonly PlayerMovement _movement;
     private readonly PlayerRotation _rotation;
     private readonly WeaponRotation _weaponRotation;
         
 
-    public RunState(PlayerMovement movement, PlayerRotation rotation, WeaponRotation weaponRotation)
+    public PlayerRunState(PlayerMovement movement, PlayerRotation rotation, WeaponRotation weaponRotation)
     {
         _movement = movement;
         _rotation = rotation;

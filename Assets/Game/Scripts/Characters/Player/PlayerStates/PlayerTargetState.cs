@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class HasTargetState : State
+public class PlayerTargetState : State
 {
     private readonly PlayerMovement _movement;
     private readonly PlayerRotation _rotation;
     private readonly WeaponRotation _weaponRotation;
-    private readonly Enemy _enemy;
+    private readonly CharacterHealth _enemy;
 
 
-    public HasTargetState(PlayerMovement movement, PlayerRotation rotation, WeaponRotation weaponRotation, Enemy enemy)
+    public PlayerTargetState(PlayerMovement movement, PlayerRotation rotation, WeaponRotation weaponRotation, CharacterHealth enemy)
     {
         _movement = movement;
         _rotation = rotation;

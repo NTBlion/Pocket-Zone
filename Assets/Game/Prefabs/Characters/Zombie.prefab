@@ -786,6 +786,8 @@ GameObject:
   - component: {fileID: 6368625483488279407}
   - component: {fileID: 7572510518207991439}
   - component: {fileID: 6368625483488279404}
+  - component: {fileID: 4158044623929025973}
+  - component: {fileID: 4835795783864282194}
   - component: {fileID: 7572510518207991438}
   - component: {fileID: 4251285862251237932}
   m_Layer: 7
@@ -838,6 +840,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 3
   _maxHealth: 3
+--- !u!114 &4158044623929025973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499291648335454823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3e65af48350fa43be7e5fdc468b265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionRadius: 3
+  _enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &4835795783864282194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6499291648335454823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229f6527c9e54481bec3d0c25ac4d7d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rigidbody: {fileID: 7572510518207991438}
+  _speed: 2
 --- !u!50 &7572510518207991438
 Rigidbody2D:
   serializedVersion: 4
