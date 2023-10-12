@@ -3,23 +3,24 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private List<Item> Items;
-    [SerializeField] private InventoryCell _cell;
-    [SerializeField] private Transform _container;
+    [SerializeField] private Cell[] _cells;
+    [SerializeField] private List<Item> _items;
+    [SerializeField] private ItemRenderer _renderedItem;
     private void OnEnable()
     {
-        Render(Items);
+        Render(_items);
     }
 
     public void Render(List<Item> items)
     {
-        foreach (Transform child in _container)
-            Destroy(child.gameObject);
-        
-        foreach (var item in items)
+        int index = 0;
+        for (int i = 0; i < _cells.Length; i++)
         {
-            var cell = Instantiate(_cell, _container);
-            cell.Render(item);
+            if (_cells[i].TryPlace())
+            {
+                Instantiate(_renderedItem,_cells[i].transform).Init(_items[index]);
+                index++;
+            }
         }
     }
 }
