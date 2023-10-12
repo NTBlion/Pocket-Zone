@@ -24169,7 +24169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletTemplate: {fileID: 4539838025625272, guid: 6db586d8cc09dbb4f8b31eed5a8e0146, type: 3}
   _bulletPoint: {fileID: 1850176259}
-  _speed: 5
+  _speed: 20
 --- !u!114 &1353739074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24286,6 +24286,7 @@ GameObject:
   - component: {fileID: 1504578978}
   - component: {fileID: 1504578980}
   - component: {fileID: 1504578979}
+  - component: {fileID: 1504578981}
   m_Layer: 6
   m_Name: HealthBar
   m_TagString: Untagged
@@ -24380,6 +24381,25 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1818360609 &1504578981
+RotationConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504578977}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_AffectRotationX: 1
+  m_AffectRotationY: 1
+  m_AffectRotationZ: 1
+  m_IsContraintActive: 0
+  m_IsLocked: 0
+  m_Sources:
+  - sourceTransform: {fileID: 1504578978}
+    weight: 1
 --- !u!1 &1514979306
 GameObject:
   m_ObjectHideFlags: 0
@@ -25010,12 +25030,10 @@ MonoBehaviour:
   _player: {fileID: 7727075449457249042}
   _playerRotation: {fileID: 7727075449457249044}
   _weaponRotation: {fileID: 1353739074}
-  _playerDetector: {fileID: 7727075449457249045}
+  _playerDetector: {fileID: 7727075449457249048}
   _playerMovement: {fileID: 7727075449457249046}
   _playerHealth: {fileID: 7727075449457249047}
   _spawner: {fileID: 1286874639}
-  _enemyMovement: {fileID: 4835795783864282194, guid: 6d1e9aaab297c7a4b8769959ccce70d9, type: 3}
-  _enemyDetector: {fileID: 4158044623929025973, guid: 6d1e9aaab297c7a4b8769959ccce70d9, type: 3}
 --- !u!1 &497333282505594998
 GameObject:
   m_ObjectHideFlags: 0
@@ -25504,11 +25522,11 @@ GameObject:
   - component: {fileID: 2182773142288149077}
   - component: {fileID: 7727075449457249042}
   - component: {fileID: 7727075449457249047}
-  - component: {fileID: 7727075449457249045}
+  - component: {fileID: 7727075449457249048}
   - component: {fileID: 7727075449457249044}
   - component: {fileID: 7727075449457249046}
-  - component: {fileID: 7727075449457249043}
   - component: {fileID: 7727075449457249041}
+  - component: {fileID: 7727075449457249043}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -25578,22 +25596,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c14c6a3ec76e4e729c78af2a25f7a636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7727075449457249045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7727075449457249039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c3e65af48350fa43be7e5fdc468b265, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _detectionRadius: 2
-  _layer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!114 &7727075449457249046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25622,6 +25624,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentHealth: 10
   _maxHealth: 10
+--- !u!114 &7727075449457249048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7727075449457249039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3e65af48350fa43be7e5fdc468b265, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _detectionRadius: 3
+  _layer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &8034222806992949944
 Transform:
   m_ObjectHideFlags: 0

@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rigidbody: {fileID: -4617804825040773692}
-  _delayBeforeDestroy: 5
+  _delayBeforeDestroy: 1
   _damage: 1
 --- !u!58 &8002355960990010037
 CircleCollider2D:

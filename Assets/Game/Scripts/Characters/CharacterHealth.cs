@@ -6,6 +6,8 @@ public class CharacterHealth : MonoBehaviour, IDamagable
     [SerializeField] [Min(1f)] private float _currentHealth;
     [SerializeField] [Min(1f)] private float _maxHealth;
 
+    public event Action Died;
+    
     private void OnValidate()
     {
         if (_currentHealth > _maxHealth)
@@ -47,6 +49,7 @@ public class CharacterHealth : MonoBehaviour, IDamagable
 
     private void Die()
     {
+        Died?.Invoke();
         Destroy(gameObject);
     }
 }

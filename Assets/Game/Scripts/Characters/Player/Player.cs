@@ -39,10 +39,9 @@ public class Player : MonoBehaviour
             _stateMachine.ChangeState(_playerRunState);
         }
 
-        if (_detector.FindNearestEnemy() != null)
-        {
-            _enemy = _detector.FindNearestEnemy();
+        _enemy = _detector.FindNearestEnemy();
+
+        if (_enemy != null)
             _stateMachine.ChangeState(new PlayerTargetState(_movement, _rotation, _weaponRotation, _enemy));
-        }
     }
 }

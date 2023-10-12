@@ -13,17 +13,14 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private CharacterHealth _playerHealth;
 
     [Header("Enemy")] [SerializeField] private EnemySpawner _spawner;
-    [SerializeField] private EnemyMovement _enemyMovement;
-    [SerializeField] private Detector _enemyDetector;
 
     private void Awake()
     {
         _player.Init(_joystick, _playerDetector, _playerMovement, _playerRotation, _weaponRotation);
-        _camera.Init(_player);
+        _camera.Init(_playerHealth);
         _playerRotation.Init(_joystick);
         _weaponRotation.Init(_joystick);
         _playerMovement.Init(_joystick);
-        _spawner.Init(_enemyMovement, _enemyDetector);
         _spawner.Spawn();
     }
 }

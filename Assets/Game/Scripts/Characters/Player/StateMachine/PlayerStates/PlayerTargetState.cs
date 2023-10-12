@@ -7,7 +7,6 @@ public class PlayerTargetState : State
     private readonly WeaponRotation _weaponRotation;
     private readonly CharacterHealth _enemy;
 
-
     public PlayerTargetState(PlayerMovement movement, PlayerRotation rotation, WeaponRotation weaponRotation, CharacterHealth enemy)
     {
         _movement = movement;
