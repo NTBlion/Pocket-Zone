@@ -5,10 +5,12 @@ using TMPro;
 
 public class HudItem : MonoBehaviour
 {
+    private readonly string _emptyString = "";
+    
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _countText;
     [SerializeField] private Button _deleteButton;
-    
+
     private int _count;
 
     public event Action Deleted;
@@ -35,6 +37,6 @@ public class HudItem : MonoBehaviour
         _countText.text = _count.ToString();
 
         if (_count == 1)
-            _countText.text = "";
+            _countText.text = _emptyString;
     }
 }

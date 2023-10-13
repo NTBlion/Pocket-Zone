@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +12,6 @@ public class Inventory : MonoBehaviour
 
     private void OnEnable()
     {
-        
         if (_items.Count != 0)
             InitRender(_items);
     }
@@ -28,10 +28,7 @@ public class Inventory : MonoBehaviour
 
             if (_cells[i].CanPlace(items[i]))
             {
-                HudItem tempItem = Instantiate(_renderedHudItem, _cells[i].transform);
-                _createdItems.RemoveAt(i);
-                _createdItems.Insert(i, tempItem);
-                _createdItems[i].Init(_items[i]);
+                CreateHudItem(i, _items[i]);
             }
         }
     }
@@ -40,20 +37,25 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < _cells.Length; i++)
         {
-            if (_cells[i].CanPlace(item))
-            {
-                if (_createdItems[i] == null)
-                {
-                    HudItem tempItem = Instantiate(_renderedHudItem, _cells[i].transform);
-                    _createdItems.RemoveAt(i);
-                    _createdItems.Insert(i, tempItem);
-                    tempItem.Init(item);
-                    break;
-                }
+            if (_cells[i].CanPlace(item) == false)
+                continue;
 
-                _createdItems[i].Init(item);
+            if (_createdItems[i] == null)
+            {
+                CreateHudItem(i, item);
                 break;
             }
+
+            _createdItems[i].Init(item);
+            break;
         }
+    }
+
+    private void CreateHudItem(int index, GameItem item)
+    {
+        HudItem tempItem = Instantiate(_renderedHudItem, _cells[index].transform);
+        _createdItems.RemoveAt(index);
+        _createdItems.Insert(index, tempItem);
+        _createdItems[index].Init(item);
     }
 }
