@@ -1,18 +1,21 @@
-using TMPro;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HudItem : MonoBehaviour
 {
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _countText;
     [SerializeField] private Button _deleteButton;
-
+    
     private int _count;
 
-    public void Init(IItem item)
+    public event Action Deleted;
+
+    public void Init(GameItem item)
     {
-        _icon.sprite = item.Icon;
+        _icon.sprite = item.Sprite.sprite;
         _count++;
         
         if (_count > 1)
@@ -22,7 +25,10 @@ public class HudItem : MonoBehaviour
     public void Delete()
     {
         if (_count == 1)
+        {
+            Deleted?.Invoke();
             Destroy(gameObject);
+        }
 
         _count--;
         _deleteButton.gameObject.SetActive(false);

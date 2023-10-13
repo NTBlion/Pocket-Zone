@@ -785,8 +785,8 @@ MonoBehaviour:
   - {fileID: 410605935}
   - {fileID: 506013371}
   _items:
-  - {fileID: 11400000, guid: c15d9ccc9d35cd241ba19565d13fee3d, type: 2}
-  - {fileID: 11400000, guid: 1e355ffc32d3c6c46bf0d8794f395cbd, type: 2}
+  - {fileID: 7346474027993089315, guid: 7e458bcca37259b4f9c9d6607e9b3671, type: 3}
+  - {fileID: 2111756499738015451, guid: 87865c93b87a5804c9b63333c711d7e7, type: 3}
   _renderedHudItem: {fileID: 6956165927509617702, guid: e885df7b0aee07d4f8db64af85aec488, type: 3}
   _createdItems:
   - {fileID: 0}

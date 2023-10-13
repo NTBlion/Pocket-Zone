@@ -2,14 +2,16 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    private IItem _item;
-    private bool _isBusy;
+    [SerializeField] private GameItem _item;
+    [SerializeField] private bool _isBusy;
 
-    public bool TryPlace(IItem item)
+    public bool CanPlace(GameItem item)
     {
-        if (_isBusy && _item == item)
+       // item.Destroyd
+        
+        if (_isBusy)
         {
-            return false;
+            return _item.Id == item.Id;
         }
 
         _item = item;

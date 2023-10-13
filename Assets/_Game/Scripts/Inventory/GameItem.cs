@@ -1,16 +1,10 @@
 using UnityEngine;
 
-public class GameItem : MonoBehaviour, IItem
+public class GameItem : MonoBehaviour
 {
-    [SerializeField] private AssetItem _assetItem;
+    [SerializeField] private int _id;
     [SerializeField] private SpriteRenderer _sprite;
-    
-    public Sprite Icon => _sprite.sprite;
 
-    private Inventory _inventory;
-    
-    private void Start()
-    {
-        _sprite.sprite = _assetItem.Icon;
-    }
+    public SpriteRenderer Sprite => _sprite;
+    public int Id => _id;
 }
