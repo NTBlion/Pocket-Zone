@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 464ccfd5b54a4a8a8a9f3ec199d9b482, type: 3}
-  m_Name: Pistol
+  m_Name: Helm
   m_EditorClassIdentifier: 
   _name: Helm
   _description: This is a helm
