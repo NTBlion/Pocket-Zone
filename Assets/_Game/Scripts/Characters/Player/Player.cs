@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.TryGetComponent(out GameItem item))
+        if (other.gameObject.TryGetComponent(out Item item))
         {
             _inventory.Insert(item);
             Destroy(item.gameObject);

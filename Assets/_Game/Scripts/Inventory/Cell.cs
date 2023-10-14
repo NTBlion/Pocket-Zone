@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Cell : MonoBehaviour
 {
-    private GameItem _item;
+    private Item _item;
     private bool _isBusy;
 
-    public bool CanPlace(GameItem item)
+    public bool CanPlace(Item item)
     {
         if (_isBusy)
         {
@@ -15,5 +15,11 @@ public class Cell : MonoBehaviour
         _item = item;
         _isBusy = true;
         return true;
+    }
+
+    public void Clear()
+    {
+        _isBusy = false;
+        _item = null;
     }
 }

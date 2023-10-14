@@ -5,9 +5,8 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private Cell[] _cells;
-    [SerializeField] private List<GameItem> _items;
+    [SerializeField] private List<Item> _items;
     [SerializeField] private HudItem _renderedHudItem;
-
     [SerializeField] private List<HudItem> _createdItems;
 
     private void OnEnable()
@@ -16,7 +15,7 @@ public class Inventory : MonoBehaviour
             InitRender(_items);
     }
 
-    private void InitRender(List<GameItem> items)
+    private void InitRender(List<Item> items)
     {
         for (int i = 0; i < _cells.Length; i++)
         {
@@ -33,7 +32,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void Insert(GameItem item)
+    public void Insert(Item item)
     {
         for (int i = 0; i < _cells.Length; i++)
         {
@@ -51,7 +50,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    private void CreateHudItem(int index, GameItem item)
+    private void CreateHudItem(int index, Item item)
     {
         HudItem tempItem = Instantiate(_renderedHudItem, _cells[index].transform);
         _createdItems.RemoveAt(index);

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GameItem : MonoBehaviour
+public class Item : MonoBehaviour
 {
     [SerializeField] private int _id;
     [SerializeField] private SpriteRenderer _sprite;

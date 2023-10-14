@@ -5,17 +5,15 @@ using TMPro;
 
 public class HudItem : MonoBehaviour
 {
-    private readonly string _emptyString = "";
-    
+    private const string EMPTY = "";
+
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _countText;
     [SerializeField] private Button _deleteButton;
 
     private int _count;
-
-    public event Action Deleted;
-
-    public void Init(GameItem item)
+    
+    public void Init(Item item)
     {
         _icon.sprite = item.Sprite.sprite;
         _count++;
@@ -28,7 +26,7 @@ public class HudItem : MonoBehaviour
     {
         if (_count == 1)
         {
-            Deleted?.Invoke();
+            GetComponentInParent<Cell>().Clear();
             Destroy(gameObject);
         }
 
@@ -37,6 +35,6 @@ public class HudItem : MonoBehaviour
         _countText.text = _count.ToString();
 
         if (_count == 1)
-            _countText.text = _emptyString;
+            _countText.text = EMPTY;
     }
 }

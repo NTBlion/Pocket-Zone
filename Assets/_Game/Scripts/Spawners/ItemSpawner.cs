@@ -4,7 +4,7 @@ using Random = UnityEngine.Random;
 
 public class ItemSpawner : MonoBehaviour
 {
-    [SerializeField] private GameItem[] _item;
+    [SerializeField] private Item[] _item;
 
     public void Spawn()
     {
