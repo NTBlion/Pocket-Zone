@@ -10,7 +10,7 @@ public class HudItem : MonoBehaviour
     [SerializeField] private Image _icon;
     [SerializeField] private TMP_Text _countText;
     [SerializeField] private Button _deleteButton;
-
+    
     private int _count;
     
     public void Init(Item item)
@@ -20,6 +20,7 @@ public class HudItem : MonoBehaviour
         
         if (_count > 1)
             _countText.text = _count.ToString();
+        
     }
 
     public void Delete()

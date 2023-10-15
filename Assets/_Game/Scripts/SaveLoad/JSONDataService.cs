@@ -23,7 +23,11 @@ public class JsonDataService : IDataService
 
             using FileStream stream = File.Create(path);
             stream.Close();
-            File.WriteAllText(path, JsonConvert.SerializeObject(data));
+            
+            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.None, new JsonSerializerSettings()
+            {
+                ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+            }));
         }
 
         catch (Exception exception)

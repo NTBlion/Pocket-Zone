@@ -786,8 +786,8 @@ MonoBehaviour:
   - {fileID: 506013371}
   _renderedHudItem: {fileID: 6956165927509617702, guid: e885df7b0aee07d4f8db64af85aec488, type: 3}
   _createdItems:
-  - {fileID: 6956165927509617702, guid: e885df7b0aee07d4f8db64af85aec488, type: 3}
-  - {fileID: 6956165927509617702, guid: e885df7b0aee07d4f8db64af85aec488, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
