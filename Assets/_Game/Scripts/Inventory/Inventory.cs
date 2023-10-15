@@ -2,36 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private Cell[] _cells;
-    [SerializeField] private List<Item> _items;
     [SerializeField] private HudItem _renderedHudItem;
     [SerializeField] private List<HudItem> _createdItems;
-
-    private void OnEnable()
-    {
-        if (_items.Count != 0)
-            InitRender(_items);
-    }
-
-    private void InitRender(List<Item> items)
-    {
-        for (int i = 0; i < _cells.Length; i++)
-        {
-            if (i == _items.Count)
-            {
-                _items.Clear();
-                break;
-            }
-
-            if (_cells[i].CanPlace(items[i]))
-            {
-                CreateHudItem(i, _items[i]);
-            }
-        }
-    }
-
+    
     public void Insert(Item item)
     {
         for (int i = 0; i < _cells.Length; i++)
