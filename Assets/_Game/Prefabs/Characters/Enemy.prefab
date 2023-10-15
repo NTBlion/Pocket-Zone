@@ -789,7 +789,6 @@ GameObject:
   - component: {fileID: 4835795783864282194}
   - component: {fileID: 7572510518207991438}
   - component: {fileID: 4251285862251237932}
-  - component: {fileID: -2649933102964828857}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
@@ -832,7 +831,7 @@ MonoBehaviour:
   _damage: 1
   _attackRange: 0.5
   _delayBeforeAttack: 1
-  _spawner: {fileID: -2649933102964828857}
+  _spawner: {fileID: 0}
 --- !u!114 &6368625483488279404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -898,22 +897,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.014198631, y: 0.08166748}
   m_Size: {x: 0.3676328, y: 1.3941592}
   m_Direction: 0
---- !u!114 &-2649933102964828857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6499291648335454823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56d9b14f10f7d544ebf85c3b3fb192e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _item:
-  - {fileID: 7346474027993089315, guid: 7e458bcca37259b4f9c9d6607e9b3671, type: 3}
-  - {fileID: 2111756499738015451, guid: 87865c93b87a5804c9b63333c711d7e7, type: 3}
-  - {fileID: 7346474027993089315, guid: 9c3311676332d12458daa8390fe95a13, type: 3}
 --- !u!1 &7488688396639982019
 GameObject:
   m_ObjectHideFlags: 0

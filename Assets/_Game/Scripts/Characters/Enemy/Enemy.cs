@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _damage;
     [SerializeField] private float _attackRange = 0.1f;
     [SerializeField] private float _delayBeforeAttack = 1f;
-    [SerializeField] private ItemSpawner _spawner;
 
     private CharacterHealth _player;
     private float _timer;
@@ -27,10 +26,5 @@ public class Enemy : MonoBehaviour
             _player.TakeDamage(_damage);
             _timer = 0;
         }
-    }
-
-    private void OnDestroy()
-    {
-        _spawner.Spawn();
     }
 }
