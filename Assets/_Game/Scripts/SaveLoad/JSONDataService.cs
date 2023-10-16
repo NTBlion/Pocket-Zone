@@ -24,10 +24,11 @@ public class JsonDataService : IDataService
             using FileStream stream = File.Create(path);
             stream.Close();
             
-            File.WriteAllText(path, JsonConvert.SerializeObject(data, Formatting.None, new JsonSerializerSettings()
+            string json = JsonConvert.SerializeObject(data, Formatting.None, new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-            }));
+            });
+            File.WriteAllText(path, json);
         }
 
         catch (Exception exception)
@@ -48,7 +49,8 @@ public class JsonDataService : IDataService
 
         try
         {
-            T data = JsonConvert.DeserializeObject<T>(File.ReadAllText(path));
+            string json = File.ReadAllText(path);
+            T data = JsonConvert.DeserializeObject<T>(json);
             return data;
         }
         catch (Exception exception)

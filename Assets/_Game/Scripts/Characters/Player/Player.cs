@@ -12,20 +12,17 @@ public class Player : MonoBehaviour
     private WeaponRotation _weaponRotation;
     private CharacterHealth _enemy;
 
-    private Inventory _inventory;
-
     private StateMachine _stateMachine;
     private PlayerRunState _playerRunState;
 
     public void Init(JoystickMovement joystick, Detector detector, PlayerMovement playerMovement,
-        PlayerRotation rotation, WeaponRotation weaponRotation, Inventory inventory)
+        PlayerRotation rotation, WeaponRotation weaponRotation)
     {
         _joystick = joystick;
         _detector = detector;
         _movement = playerMovement;
         _rotation = rotation;
         _weaponRotation = weaponRotation;
-        _inventory = inventory;
         _stateMachine = new StateMachine();
         _stateMachine.Init(new PlayerIdleState());
         _playerRunState = new PlayerRunState(_movement, _rotation, _weaponRotation);
@@ -47,14 +44,5 @@ public class Player : MonoBehaviour
 
         if (_enemy != null)
             _stateMachine.ChangeState(new PlayerTargetState(_movement, _rotation, _weaponRotation, _enemy));
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.TryGetComponent(out Item item))
-        {
-            _inventory.Insert(item);
-            Destroy(item.gameObject);
-        }
     }
 }
