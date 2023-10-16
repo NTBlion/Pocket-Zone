@@ -1,20 +1,18 @@
-using System;
 using UnityEngine;
 
 public class PlayerRotation : MonoBehaviour
 {
-    
     private Player _player;
     private JoystickMovement _joystick;
 
-    
+
     private bool _isFacingRight = true;
-    
+
     public void Init(JoystickMovement joystick)
     {
         _joystick = joystick;
     }
-    
+
     public void Rotate()
     {
         var joystickVector = _joystick.ReturnVectorDirection();

@@ -31,8 +31,7 @@ public class Detector : MonoBehaviour
 
         return closestEnemy;
     }
-    
-    
+
 
     private void OnDrawGizmos()
     {

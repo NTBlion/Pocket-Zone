@@ -1,10 +1,7 @@
-using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] [Min(1f)] private float _speed;
-
     private JoystickMovement _joystick;
     private Detector _detector;
     private PlayerMovement _movement;

@@ -10,7 +10,7 @@ public class Enemy : MonoBehaviour
 
     private CharacterHealth _player;
     private float _timer;
-    
+
     private void FixedUpdate()
     {
         _timer += Time.fixedDeltaTime;

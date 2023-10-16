@@ -10,6 +10,5 @@ public class InventoryView : MonoBehaviour
     {
         _isOpened = !_isOpened;
         _inventoryArea.SetActive(_isOpened);
-        
     }
 }

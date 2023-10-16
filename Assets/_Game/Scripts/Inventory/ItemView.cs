@@ -16,17 +16,16 @@ public class ItemView : MonoBehaviour
         _inventory = inventory;
         _icon.sprite = _itemData.GetIcon();
         RefreshCount();
-        
     }
 
     public void RefreshCount()
     {
         if (_itemData.Count > 1)
             _itemCountText.gameObject.SetActive(true);
-        
+
         if (_itemData.Count < 2)
             _itemCountText.gameObject.SetActive(false);
-        
+
         _itemCountText.text = _itemData.Count.ToString();
     }
 

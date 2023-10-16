@@ -23,7 +23,7 @@ public class JsonDataService : IDataService
 
             using FileStream stream = File.Create(path);
             stream.Close();
-            
+
             string json = JsonConvert.SerializeObject(data, Formatting.None, new JsonSerializerSettings
             {
                 ReferenceLoopHandling = ReferenceLoopHandling.Ignore
@@ -56,7 +56,7 @@ public class JsonDataService : IDataService
         catch (Exception exception)
         {
             Debug.LogError($"Failed to load data due to: {exception.Message} {exception.StackTrace}");
-            throw exception;
+            throw;
         }
     }
 }

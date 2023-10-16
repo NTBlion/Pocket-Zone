@@ -18,7 +18,8 @@ public class WeaponRotation : MonoBehaviour
         switch (joystickVector.x)
         {
             case > 0:
-                transform.eulerAngles = new Vector3(transform.localRotation.x, transform.localRotation.y, angle);
+                var localRotation = transform.localRotation;
+                transform.eulerAngles = new Vector3(localRotation.x, localRotation.y, angle);
                 break;
             case < 0:
                 transform.eulerAngles = new Vector3(180, 0, -angle);
@@ -29,9 +30,9 @@ public class WeaponRotation : MonoBehaviour
     public void Rotate(CharacterHealth enemy)
     {
         var direction = transform.position - enemy.transform.position;
-        
+
         float angle = CalculateAngle(direction);
-        
+
         switch (direction.x)
         {
             case > 0:

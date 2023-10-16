@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class PlayerTargetState : State
 {
     private readonly PlayerMovement _movement;

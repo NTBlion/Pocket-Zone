@@ -8,7 +8,7 @@ public class ItemGameObject : MonoBehaviour
 
     private Inventory _inventory;
     private ItemData _itemData;
-    
+
     public void Init(Inventory inventory) => _inventory = inventory;
 
     private void OnCollisionEnter2D(Collision2D other)
