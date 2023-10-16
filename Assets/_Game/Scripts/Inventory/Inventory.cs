@@ -1,9 +1,10 @@
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private readonly List<Item> _items = new();
+    private List<ItemData> _items = new List<ItemData>();
 
     [SerializeField] private Transform _itemUIParent;
     [SerializeField] private ItemView _itemViewPrefab;
@@ -13,26 +14,58 @@ public class Inventory : MonoBehaviour
     public void Init(IDataService dataService)
     {
         _dataService = dataService;
-        _dataService.SaveData("/inventory.json", _items);
-        _dataService.LoadData<List<Item>>("/inventory.json");
+
+        if (!File.Exists(Application.persistentDataPath + "/inventory.json"))
+        {
+            SaveInventory();
+        }
+
+        LoadInventory();
     }
 
-    public void AddItem(Item item)
+    public void AddItem(ItemData itemData)
     {
-        Item existingItem = _items.Find(existing => existing.ItemId == item.ItemId);
+        ItemData existingItemData = _items.Find(existing => existing.ItemId == itemData.ItemId);
 
-        if (existingItem != null)
+        if (existingItemData != null)
         {
-            existingItem.AddCount();
-            _dataService.SaveData("/inventory.json", _items);
+            existingItemData.AddCount();
+            SaveInventory();
         }
         else
         {
-            _items.Add(item);
+            _items.Add(itemData);
 
             ItemView itemView = Instantiate(_itemViewPrefab, _itemUIParent);
-            itemView.Init(item);
+            itemView.Init(itemData);
             _dataService.SaveData("/inventory.json", _items);
         }
+    }
+
+    private void SaveInventory()
+    {
+        _dataService.SaveData("/inventory.json", _items);
+    }
+
+    private void LoadInventory()
+    {
+        _items.Clear();
+        List<ItemData> loadedItems = _dataService.LoadData<List<ItemData>>("/inventory.json");
+
+        if (loadedItems != null)
+        {
+            _items.AddRange(loadedItems);
+        }
+
+        foreach (ItemData item in _items)
+        {
+            CreateItemView(item);
+        }
+    }
+
+    private void CreateItemView(ItemData itemData)
+    {
+        ItemView itemView = Instantiate(_itemViewPrefab, _itemUIParent);
+        itemView.Init(itemData);
     }
 }

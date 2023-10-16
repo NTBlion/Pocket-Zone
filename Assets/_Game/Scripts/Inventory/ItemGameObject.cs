@@ -3,9 +3,12 @@ using UnityEngine;
 public class ItemGameObject : MonoBehaviour
 {
     [SerializeField] private int _itemId;
+    [SerializeField] private int _count = 1;
     [SerializeField] private SpriteRenderer _icon;
     [SerializeField] private Inventory _inventory;
 
+    private ItemData _itemData;
+    
     //private Inventory _inventory;
 
     public void Init(Inventory inventory) => _inventory = inventory;
@@ -14,10 +17,10 @@ public class ItemGameObject : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent(out Player player))
         {
-            Item newItem = new Item(_itemId, 1, _icon.sprite);
+            _itemData = new ItemData(_itemId, _count, _icon.sprite);
 
-           _inventory.AddItem(newItem);
-
+           _inventory.AddItem(_itemData);
+           
             Destroy(gameObject);
         }
     }
