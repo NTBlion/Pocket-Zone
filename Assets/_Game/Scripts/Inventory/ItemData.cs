@@ -5,7 +5,6 @@ using UnityEngine;
 [Serializable]
 public class ItemData
 {
-    
     [JsonProperty] public int ItemId { get; private set; }
     [JsonProperty] public int Count { get; private set; }
     [JsonProperty] public byte[] IconData { get; private set; }
@@ -20,6 +19,16 @@ public class ItemData
     public Sprite GetIcon()
     {
         return ConvertBytesToSprite(IconData);
+    }
+
+    public void SubtractCount()
+    {
+        Count--;
+    }
+
+    public void AddCount()
+    {
+        Count++;
     }
 
     private byte[] ConvertSpriteToBytes(Sprite sprite)
@@ -44,11 +53,6 @@ public class ItemData
         texture.LoadImage(bytes);
         Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), Vector2.one * 0.5f);
         return sprite;
-    }
-
-    public void AddCount()
-    {
-        Count++;
     }
 
     // Другие методы вашего класса ItemData
