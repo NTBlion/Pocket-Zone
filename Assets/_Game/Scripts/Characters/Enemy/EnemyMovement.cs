@@ -7,7 +7,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void Move(CharacterHealth player)
     {
-        Vector2 direction = player.transform.position - transform.position;
+        Vector2 direction = (player.transform.position - transform.position).normalized;
         _rigidbody.MovePosition(_rigidbody.position + direction * (Time.fixedDeltaTime * _speed));
     }
 }
