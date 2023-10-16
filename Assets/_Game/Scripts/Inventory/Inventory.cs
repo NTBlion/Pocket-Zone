@@ -30,6 +30,10 @@ public class Inventory : MonoBehaviour
         if (existingItemData != null)
         {
             existingItemData.AddCount();
+            
+            ItemView itemView = FindItemView(existingItemData);
+            itemView.RefreshCount();
+            
             SaveInventory();
         }
         else
