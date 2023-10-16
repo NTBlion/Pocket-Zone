@@ -14,7 +14,8 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private CharacterHealth _playerHealth;
     
-    [Header("Enemy")] [SerializeField] private EnemySpawner _spawner;
+    [Header("Enemy")] [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private ItemSpawner _itemSpawner;
 
     [Header("Inventory")] [SerializeField] private Inventory _inventory;
     
@@ -26,8 +27,8 @@ public class GameRoot : MonoBehaviour
         _playerRotation.Init(_joystick);
         _weaponRotation.Init(_joystick);
         _playerMovement.Init(_joystick);
-        _spawner.Spawn();
+        _itemSpawner.Init(_inventory);
+        _enemySpawner.Spawn();
         _inventory.Init(_dataService);
-        
     }
 }
