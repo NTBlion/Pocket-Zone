@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemId: 2
+  _count: 1
   _icon: {fileID: 2087546935225759626}
+  _inventory: {fileID: 0}
 --- !u!58 &2605827229151923047
 CircleCollider2D:
   m_ObjectHideFlags: 0
