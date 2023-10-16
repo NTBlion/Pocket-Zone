@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameRoot : MonoBehaviour
 {
+    private readonly IDataService _dataService = new JsonDataService();
+    
     [SerializeField] private CameraFollow _camera;
     [SerializeField] private JoystickMovement _joystick;
 
@@ -11,8 +13,11 @@ public class GameRoot : MonoBehaviour
     [SerializeField] private Detector _playerDetector;
     [SerializeField] private PlayerMovement _playerMovement;
     [SerializeField] private CharacterHealth _playerHealth;
-
+    
     [Header("Enemy")] [SerializeField] private EnemySpawner _spawner;
+
+    [Header("Inventory")] [SerializeField] private Inventory _inventory;
+    
 
     private void Awake()
     {
@@ -22,5 +27,7 @@ public class GameRoot : MonoBehaviour
         _weaponRotation.Init(_joystick);
         _playerMovement.Init(_joystick);
         _spawner.Spawn();
+        _inventory.Init(_dataService);
+        
     }
 }
